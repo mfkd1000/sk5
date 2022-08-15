@@ -33,9 +33,10 @@ echo 'm1001 m1001' > /etc/opt/ss5/ss5.passwd
 echo 'SS5_OPTS=" -u root -b 0.0.0.0:1080"' > /etc/sysconfig/ss5
 
 # 开机自启动(3.8.9-8的一个bug，重启会删掉/var/run/ss5/,导致开机自启动时无法创建pid文件
-echo 'mkdir /var/run/ss5/' >> /etc/rc.d/rc.local ;\
-chmod +x /etc/rc.d/rc.local ;\
-/sbin/chkconfig ss5 on
+echo 'mkdir /var/run/ss5/' >> /etc/rc.d/rc.local
+echo 'service ss5 start' >> /etc/rc.d/rc.local
+echo '/sbin/chkconfig ss5 on' >> /etc/rc.d/rc.local
+chmod +x /etc/rc.d/rc.local 
 
 #增加SS5启动权限
 
