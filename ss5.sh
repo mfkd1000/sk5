@@ -8,6 +8,7 @@ yum -y install pam-devel openldap-devel cyrus-sasl-devel openssl-devel
 
 #下载SS5源码包
 
+cd /usr/local/
 wget http://jaist.dl.sourceforge.net/project/ss5/ss5/3.8.9-8/ss5-3.8.9-8.tar.gz
 
 #进入下载目录解压
@@ -49,8 +50,9 @@ service ss5 start
 
 firewall-cmd --add-port=1080/tcp --permanent ;\
 firewall-cmd --reload
-cd
+cd /usr/local/
 rm -rf ss5-3.8.9-8.tar.gz
+cd
 rm -rf ss5.sh
 #重启
 reboot
